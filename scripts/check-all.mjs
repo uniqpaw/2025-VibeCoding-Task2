@@ -168,7 +168,7 @@ function output({ results, score, note }) {
 
 async function postPRComment({ results, score, note }) {
   // 只在 PR 事件時留言
-  if (process.env.GITHUB_EVENT_NAME !== 'pull_request') {
+  if (process.env.GITHUB_EVENT_NAME !== 'pull_request' && process.env.GITHUB_EVENT_NAME !== 'pull_request_target') {
     console.log('ℹ️  非 PR 環境，跳過留言');
     return;
   }
